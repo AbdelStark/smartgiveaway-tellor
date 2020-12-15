@@ -1,14 +1,10 @@
-[![smartgiveaway Actions Status](https://github.com/abdelhamidbakhta/smartgiveaway/workflows/smartgiveaway-ci/badge.svg)](https://github.com/abdelhamidbakhta/smartgiveaway/actions)
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/abdelhamidbakhta/smartgiveaway/blob/master/LICENSE)
-[![sonar-quality-gate][sonar-quality-gate]][sonar-url]  [![sonar-bugs][sonar-bugs]][sonar-url] [![sonar-vulnerabilities][sonar-vulnerabilities]][sonar-url]
-
-# Smart Giveaway
+# Tellor Giveaway
 [Build A Project Using Tellor](https://gitcoin.co/issue/tellor-io/usingtellor/28/100024321)
 
 ## Online Demo
-Try it on your own! Works on Gorli.
+Try it on your own! Works on Gorli using `Tellor Playground contract` deployed at [0x20374E579832859f180536A69093A126Db1c8aE9](https://goerli.etherscan.io/address/0x20374E579832859f180536A69093A126Db1c8aE9#code).
 
-[Online Demo](http://smartgiveaway.surge.sh/)
+[Online Demo](http://give.tellor.surge.sh/)
 
 As part of the Gitcoin Hackathon we are building a Giveaway platform (similar to twitter giveaways).
 
@@ -59,13 +55,3 @@ npm run lint
 
 #### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
-
-### Back-End service
-[See instructions.](https://github.com/abdelhamidbakhta/smartgiveaway-backend)
-
-[Online Open API specification](https://smartgiveaway.herokuapp.com/)
-
-[sonar-url]: https://sonarcloud.io/dashboard?id=abdelhamidbakhta_smartgiveaway
-[sonar-quality-gate]: https://sonarcloud.io/api/project_badges/measure?project=abdelhamidbakhta_smartgiveaway&metric=alert_status
-[sonar-bugs]: https://sonarcloud.io/api/project_badges/measure?project=abdelhamidbakhta_smartgiveaway&metric=bugs
-[sonar-vulnerabilities]: https://sonarcloud.io/api/project_badges/measure?project=abdelhamidbakhta_smartgiveaway&metric=vulnerabilities
