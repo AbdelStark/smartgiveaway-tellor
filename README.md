@@ -12,7 +12,7 @@ See https://docs.tellor.io/tellor/integration/reference-page for more informatio
 
 As part of the Gitcoin Hackathon we are building a Giveaway platform (similar to twitter giveaways).
 
-This is a Proof Of Concept aiming to use `Tello` technology to build innovative features on top of an Ethereum smart contract solution.
+This is a Proof Of Concept aiming to use `Tellor` technology to build innovative features on top of an Ethereum smart contract solution.
 
 ## Use case
 
