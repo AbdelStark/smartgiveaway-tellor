@@ -1,0 +1,10 @@
+{
+  "dashboard": {
+  },
+  "sidebar": {
+    "title": "SmartGiveAway",
+    "dashboard": "Dashboard",
+    "giveaway": "Give Away",
+    "random": "Random Aura"
+  }
+}
