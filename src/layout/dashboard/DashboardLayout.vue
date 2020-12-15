@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <side-bar title="SmartGiveAway">
+    <side-bar title="Tellor GiveAway">
       <template slot="links">
         <sidebar-link :name="$t('sidebar.dashboard')" icon="tim-icons icon-chart-pie-36" to="/dashboard"/>
         <sidebar-link :name="$t('sidebar.giveaway')" icon="tim-icons icon-gift-2" to="/giveaway"/>

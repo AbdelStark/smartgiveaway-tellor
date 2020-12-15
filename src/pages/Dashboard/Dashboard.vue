@@ -42,9 +42,23 @@
             </div>
             <div class="row">
               <div class="col-md-3 mt-2">
-                <label class="mr-2">Prize</label>
+                <label class="mr-2">Prize (USD)</label>
+                <base-input v-model="giveaway.usdPrize"></base-input>
+              </div>
+              <div class="col-md-3 mt-2">
+                <label class="mr-2">Prize (ETH)</label>
                 <base-input v-model="giveaway.prize"></base-input>
               </div>
+              <div class="col-md-4 mt-4">
+                <base-button @click="convertUsingOracle">Convert using Tellor Oracle</base-button>
+              </div>
+            </div>
+            <div class="row" v-if="oracleMessage !== null">
+              <div class="col-md-12">
+                <h3>{{oracleMessage}}</h3>
+              </div>
+            </div>
+            <div class="row">
               <div class="col-md-3 mt-2">
                 <label class="mr-2">Score for Like</label>
                 <base-input v-model="giveaway.likeScore"></base-input>
@@ -85,6 +99,7 @@ import {FadeTransition} from 'vue2-transitions';
 import {mapState} from "vuex";
 import {GiveAwayArtifacts} from '@/assets/contracts/GiveAway';
 import Web3 from "web3";
+import {GiveAwayContractWrapper} from "@/services/GiveAwayContractWrapper";
 
 export default {
   components: {
@@ -92,6 +107,8 @@ export default {
   },
   data() {
     return {
+      oracleContract: null,
+      oracleMessage: null,
       loading: false,
       giveaway: {
         type: 'retweet',
@@ -107,7 +124,8 @@ export default {
         maxParticipants: 10,
         likeScore: 1,
         retweetScore: 5,
-        prize: 0.5,
+        prize: 0,
+        usdPrize: 50,
         contractAddress: '',
       }
     }
@@ -119,9 +137,26 @@ export default {
       'settings',
     ])
   },
-  async created() {
+  mounted() {
+    this.oracleContract = this.getContractWrapper(this.cache.lastContractDeployed);
   },
   methods: {
+    async convertUsingOracle(){
+      if(this.cache.lastContractDeployed == null){
+        this.$notifyMessage('danger', 'No Tellor Oracle available.');
+      }else{
+        const oracleInfo = await this.oracleContract.callOracle(1);
+        const ethPrice = oracleInfo[1];
+        this.oracleMessage = `1 ETH = ${ethPrice} USD`;
+        this.giveaway.prize = this.giveaway.usdPrize / ethPrice;
+      }
+    },
+    getContractWrapper(contractAddress) {
+      return new GiveAwayContractWrapper(
+          this.services.web3,
+          this.services.ethereum.selectedAddress,
+          contractAddress);
+    },
     async startGiveAway() {
       this.loading = true;
       console.log(this.giveaway);

@@ -14,7 +14,7 @@
           <div class="photo">
             <img
               alt=""
-              src="img/icons/teku.png">
+              src="img/icons/tellor.png">
           </div>
         </a>
         <a class="simple-text logo-normal" href="#">

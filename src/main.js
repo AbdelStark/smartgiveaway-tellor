@@ -36,13 +36,20 @@ Vue.use(Vuex);
 
 const settings = buildSettings();
 const services = buildServices(settings);
+let lastContractDeployed = null;
+if(localStorage.getItem('giveaways')){
+  const data = JSON.parse(localStorage.getItem('giveaways'));
+  if(Array.isArray(data) && data.length > 0) {
+    lastContractDeployed =  data[data.length - 1].giveawayId;
+  }
+}
 // create store
 const store = new Vuex.Store({
   state: {
     settings: settings,
     services: services,
     cache: {
-      lastContractDeployed: '',
+      lastContractDeployed: lastContractDeployed,
     }
   },
   mutations: {}
